@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sarthak.DTO.CurrentDataDTO;
 import com.sarthak.client.OpenWeatherClient;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
@@ -14,7 +15,13 @@ import java.io.IOException;
 @Service
 public class OpenWeatherService {
     private OpenWeatherClient openWeatherClient;
-    public CurrentDataDTO getTemperatureAndWeather(String cityName){
+
+    @Autowired
+    public void setOpenWeatherClient(OpenWeatherClient openWeatherClient) {
+        this.openWeatherClient = openWeatherClient;
+    }
+
+    public CurrentDataDTO getWeatherData(String cityName){
         String data = openWeatherClient.getCurrentWeatherData(cityName);
         ObjectMapper objectMapper = new ObjectMapper();
         JsonNode weatherData=null;
