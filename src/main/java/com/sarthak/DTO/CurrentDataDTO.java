@@ -7,10 +7,12 @@ public class CurrentDataDTO {
     private double temperature;
     private String skyCondition;
     private double humidityInPercent;
-    public CurrentDataDTO(double temperature, String skyCondition, double humidityInPercent) {
+    private String cityName;
+    public CurrentDataDTO(double temperature, String skyCondition, double humidityInPercent, String cityName) {
         this.temperature = temperature;
         this.skyCondition = skyCondition;
         this.humidityInPercent = humidityInPercent;
+        this.cityName = cityName;
     }
 
     public double getHumidityInPercent() {
@@ -23,5 +25,9 @@ public class CurrentDataDTO {
 
     public String getSkyCondition() {
         return skyCondition;
+    }
+
+    public String getCityName() {
+        return cityName;
     }
 }

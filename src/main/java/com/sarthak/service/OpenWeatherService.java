@@ -39,6 +39,6 @@ public class OpenWeatherService {
         JsonNode weather=weatherData.get("weather").get(0);
         String skyCondition=weather.get("description").textValue();
 
-        return new CurrentDataDTO(temperatureInCelsius,skyCondition,humidityInPercent);
+        return new CurrentDataDTO(temperatureInCelsius,skyCondition,humidityInPercent,cityName);
     }
 }
