@@ -38,7 +38,7 @@ public class OpenWeatherService {
         double humidityInPercent = main.get("humidity").doubleValue();
         JsonNode weather=weatherData.get("weather").get(0);
         String skyCondition=weather.get("description").textValue();
-
+        cityName = Character.toUpperCase(cityName.charAt(0))+cityName.substring(1);
         return new CurrentDataDTO(temperatureInCelsius,skyCondition,humidityInPercent,cityName);
     }
 }
